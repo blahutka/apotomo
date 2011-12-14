@@ -66,7 +66,7 @@ module Apotomo
         
         return render_iframe_updates(page_updates) if params[:apotomo_iframe]
         
-        render :text => page_updates.join("\n"), :content_type => Mime::JS
+        render :text => page_updates.join("\n"), :content_type => (params[:content_type] ? Mime::HTML || Mime::JS)
       end
       
       # Returns the url to trigger a +type+ event from +:source+, which is a non-optional parameter.
